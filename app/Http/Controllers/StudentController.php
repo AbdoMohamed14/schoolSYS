@@ -47,7 +47,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        return view('students.profile');
+        return view('students.profile', compact('student'));
     }
 
     /**

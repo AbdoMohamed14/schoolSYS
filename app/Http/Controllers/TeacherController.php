@@ -48,6 +48,8 @@ class TeacherController extends Controller
                 'name_en' => $request->name_en,
                 'subject_id' => $request->subject,
                 'email'  => $request->email,
+                'phone' => $request->phone,
+                'address'=> $request->address,
             ]);
 
             flash()->addSuccess(trans('toaster.success'));

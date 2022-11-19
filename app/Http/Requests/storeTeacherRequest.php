@@ -33,6 +33,8 @@ class storeTeacherRequest extends FormRequest
             'name_en'=> 'required|string|max:50|unique:teachers,name_en,'.$id,
             'email'  => 'nullable|email|unique:teachers,email,'.$id,
             'subject'=> 'required|integer',
+            'phone'  => 'required|string|unique:teachers,phone,'.$id,
+            'address'=> 'required|string',
         ];
     }
 }

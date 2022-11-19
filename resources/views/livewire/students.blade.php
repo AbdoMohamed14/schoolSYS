@@ -29,13 +29,15 @@
                 <td>{{ $student->$name_attr }}</td>
                 <td>{{ $student->stage->$name_attr }}</td>
                 <td>{{ $student->stageClass->$name_attr }}</td>
-                <td>{{ $student->classroom->$name_attr }}</td>
+                <td>{{ $student->classroom->name }}</td>
                 <td>{{ $student->blood }}</td>
                 <td>{{ $student->religion }}</td>
                 <td>
                     <button wire:click="editMode({{ $student->id }})" title="{{ trans('Grades_trans.Edit') }}"
                             class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
                     <button type="button" class="btn btn-danger btn-sm"  title="{{ trans('Grades_trans.Delete') }}" data-toggle="modal" data-target='#deleteModal{{$student->id}}'><i class="fa fa-trash"></i></button>
+                    <a type="button" href="{{route('students.show', $student->id)}}" class="btn btn-warning btn-sm" title="{{ trans('students.show_students') }}"><i style="color: #ffffff" class="fa fa-eye"></i>
+
                 </td>
             </tr>
 

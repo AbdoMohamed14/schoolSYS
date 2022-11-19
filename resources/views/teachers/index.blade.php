@@ -127,6 +127,21 @@ empty
                                             </div>
                                         </div>
                                         <br>
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for="name" class="mr-sm-2">{{
+                                                    trans('teachers.mobile') }}
+                                                    :</label>
+                                                <input id="Name" type="text" value="{{$teacher->phone}}" name="phone" class="form-control">
+                                            </div>
+                                            <div class="col">
+                                                <label for="name" class="mr-sm-2">{{
+                                                    trans('teachers.address') }}
+                                                    :</label>
+                                                <input id="Name" type="text" value="{{$teacher->address}}" name="address" class="form-control">
+                                            </div>
+                                        </div>
+                                        <br>
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1">{{ trans('teachers.teacher_subject') }}
                                                 :</label>
@@ -226,6 +241,21 @@ empty
                                                     trans('teachers.email') }}
                                                     :</label>
                                                 <input id="Name" type="text" name="email" class="form-control">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for="name" class="mr-sm-2">{{
+                                                    trans('teachers.mobile') }}
+                                                    :</label>
+                                                <input id="Name" type="text" name="phone" class="form-control">
+                                            </div>
+                                            <div class="col">
+                                                <label for="name" class="mr-sm-2">{{
+                                                    trans('teachers.address') }}
+                                                    :</label>
+                                                <input id="Name" type="text" name="address" class="form-control">
                                             </div>
                                         </div>
                                         <br>

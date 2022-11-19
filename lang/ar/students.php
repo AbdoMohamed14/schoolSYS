@@ -2,6 +2,7 @@
 
 return [
     'students' => 'الطلاب',
+    'student_name' => 'إسم الطالب',
     'student_name_ar' => 'إسم الطالب',
     'student_info' => 'معلومات الطالب',
     'parent_info'  => 'معلومات ولى الأمر',
@@ -31,6 +32,9 @@ return [
     'save_changes' => 'حفظ التغييرات',
     'show_students' => 'عرض الطلاب', 
     'add_student' => 'إضافة طالب',
+    'student_rate' => 'تقييم الطالب',
+    'parent' => 'ولي الأمر',
+
 
     
 

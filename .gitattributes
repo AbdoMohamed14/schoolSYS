@@ -1,6 +1,6 @@
 * text=auto
 *.JavaScript linguist-detectable=false
-*.css linguist-detectable=false
+*.CSS linguist-detectable=false
 
 
 *.blade.php diff=html
