@@ -42,7 +42,7 @@ empty
                     {{ trans('classrooms.add_classroom') }}
                 </button>
                 <br><br>
-                    
+
                 <div class="table-responsive">
                     <table id="datatable" class="table table-striped table-bordered p-0">
                         <thead>
@@ -133,6 +133,17 @@ empty
                                                     @endforeach
                                                 </select>
                                             </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="teachers">المعلمين</label>
+                                                    <select class="custom-select" name="teachers[]" multiple>
+                                                        <option selected disabled>Open this select menu</option>
+                                                        @foreach ($teachers as $teacher)
+                                                            <option value="{{$teacher->id}}">{{$teacher->name_ar}}->{{$teacher->subject->name_ar}}</option>
+                                                        @endforeach
+                                                      </select>
+                                                </div>
+                                            </div>    
 
                                             <div class="row">
                                                 <div class="col">
@@ -219,6 +230,7 @@ empty
                                             </div>
                                         </div>
                                         <br>
+
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1">{{ trans('stage_classes.stage') }}
                                                 :</label>
@@ -239,6 +251,17 @@ empty
                                                 <option value="{{$stage_class->id}}">{{$stage_class->$name_attr}}</option>
                                                 @endforeach
                                             </select>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for="teachers">المعلمين</label>
+                                                <select class="custom-select" name="teachers[]" multiple>
+                                                    <option selected disabled>Open this select menu</option>
+                                                    @foreach ($teachers as $teacher)
+                                                        <option value="{{$teacher->id}}">{{$teacher->name_ar}}->{{$teacher->subject->name_ar}}</option>
+                                                    @endforeach
+                                                  </select>
+                                            </div>
                                         </div>
 
                                         <div class="row">

@@ -24,6 +24,7 @@ return [
     'parent_name_ar'  => 'إسم ولي الأمر',
     'parent_name_en'  => 'إسم ولي الأمر بالإنجليزية',
     'Parent_phone' => 'رقم الهاتف',
+    'Parent_email' => 'البريد الإليكترونى',
     'add_student'  => 'إضافة طالب',
     'student_name_en' => 'إسم الطالب بالإنجليزية',
     'muslim' => 'مسلم',

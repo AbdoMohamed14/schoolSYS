@@ -2,18 +2,18 @@
 
 return [
 
-    'stage_name' => 'المرحلة',
-    'notes'    => 'ملاحظات',
-    'actions' => 'العمليات',
-    'add_stage' => 'إضافة مرحلة',
-    'stage_name_ar' => 'إسم المرحلة',
-    'stage_name_en' => ' إسم المرحلة بالإنجليزية',
-    'Close' => 'اغلاق',
-    'submit' => 'حفظ البيانات',
-    'edit_Grade' => 'تعديل مرحلة',
-    'delete_Grade' => 'حذف مرحلة',
-    'Warning_Grade' => 'هل حقا تود حذف المرحلة',
-    'delete'  => 'حذف',
+    'lesson_title' => 'Title',
+    'notes'    => 'Notes',
+    'actions' => 'Actions',
+    'add_lesson' => 'Add Lesson',
+    'stage_name_ar' => 'Stage name ar',
+    'stage_name_en' => 'Stage name en',
+    'Close' => 'close',
+    'submit' => 'Save data',
+    'edit_Grade' => 'Edit Grade',
+    'delete_Grade' => 'Delete Grade',
+    'Warning_Grade' => 'Delete Grade !!',
+    'delete'  => 'delete',
 
 
 ];

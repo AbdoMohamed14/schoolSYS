@@ -30,12 +30,20 @@ $name_attr = 'name'.$slug;
 
             <div class="form-row">
                 <div class="col">
+                    <label for="title">{{trans('students.Parent_email')}}</label>
+                    <input type="text" wire:model="parent_email" class="form-control">
+                    @error('parent_email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col">
                     <label for="title">{{trans('students.Parent_phone')}}</label>
                     <input type="text" wire:model="parent_phone" class="form-control">
                     @error('parent_phone')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
+
                 <br>
             </div>
             <br>

@@ -33,6 +33,11 @@ class Classroom extends Model
 
     public function teachers()
     {
-        return $this->belongsToMany(Teacher_classroom::class, 'teacher_classrooms');
+        return $this->belongsToMany(Teacher::class, 'teacher_classrooms');
+    }
+
+    public function session_table()
+    {
+        return $this->hasMany(SessionTable::class, 'classroom', 'id');
     }
 }

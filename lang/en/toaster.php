@@ -2,9 +2,7 @@
 
 return [
 
-    'success' => 'Data has been saved successfully!',
-    ''
-
-
+    'success' => ' Data saved successfully',
+    'Delete'  => 'Data deleted successfully',
 
 ];

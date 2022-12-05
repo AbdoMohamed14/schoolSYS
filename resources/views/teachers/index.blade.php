@@ -217,6 +217,7 @@ empty
                                     </button>
                                 </div>
                                 <div class="modal-body">
+                                    
                                     <!-- add_form -->
                                     <form action="{{ route('teachers.store') }}" method="POST">
                                         @csrf

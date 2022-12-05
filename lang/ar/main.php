@@ -8,6 +8,7 @@ return [
     'stage_classes' => 'الصفوف الدراسية',
     'classrooms' => 'الفصول الدراسية',
     'search' => 'بحث',
+    'session_tables'=> 'جداول الحصص',
 
 
 ];

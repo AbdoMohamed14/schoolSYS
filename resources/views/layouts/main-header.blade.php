@@ -100,21 +100,25 @@
                 <li class="nav-item dropdown mr-30">
                     <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false">
-                        <img src="{{asset('assets/images/profile-avatar.jpg')}}" alt="avatar">
+                        @if (Auth::user()->avatar)
+                            <img src="{{asset('assets/images/'.Auth::user()->avatar)}}" alt="avatar">
+                        @else
+                            <img src="{{asset('assets/images/profile-avatar.jpg')}}" alt="avatar">
+                        @endif
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="dropdown-header">
                             <div class="media">
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-0">Michael Bean</h5>
-                                    <span>michael-bean@mail.com</span>
+                                    <h5 class="mt-0 mb-0">{{Auth::user()->name}}</h5>
+                                    <span>{{Auth::user()->email}}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#"><i class="text-secondary ti-reload"></i>Activity</a>
                         <a class="dropdown-item" href="#"><i class="text-success ti-email"></i>Messages</a>
-                        <a class="dropdown-item" href="#"><i class="text-warning ti-user"></i>Profile</a>
+                        <a class="dropdown-item" href="{{route('myProfile')}}"><i class="text-warning ti-user"></i>Profile</a>
                         <a class="dropdown-item" href="#"><i class="text-dark ti-layers-alt"></i>Projects <span
                                 class="badge badge-info">6</span> </a>
                         <div class="dropdown-divider"></div>

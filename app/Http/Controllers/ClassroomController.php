@@ -6,6 +6,7 @@ use App\Http\Requests\storeClassroomRequest;
 use App\Models\Classroom;
 use App\Models\Stage;
 use App\Models\StageClass;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class ClassroomController extends Controller
@@ -21,7 +22,12 @@ class ClassroomController extends Controller
         $classrooms = Classroom::all();
         $stages = Stage::all();
         $stage_classes = StageClass::all();
-        return view('classrooms.index', ['stages'=>$stages,'classrooms'=>$classrooms, 'stage_classes'=>$stage_classes]);
+        $teachers = Teacher::all();
+        return view('classrooms.index', ['stages'=>$stages,
+                                         'classrooms'=>$classrooms,
+                                         'stage_classes'=>$stage_classes,
+                                         'teachers'=>$teachers,
+                                        ]);
     }
 
     /**
@@ -42,17 +48,21 @@ class ClassroomController extends Controller
      */
     public function store(storeClassroomRequest $request)
     {
+
+        
         try {
                 
             $validated = $request->validated();
 
-            Classroom::create([
-                'name' => $request->name,
-                'stage_id' => $request->stage,
-                'stage_class_id' => $request->stage_class,
-                'notes' => $request->notes,
-            ]);
+            $classroom = new Classroom;
+            $classroom->name = $request->name;
+            $classroom->stage_id =  $request->stage;
+            $classroom->stage_class_id = $request->stage_class;
+            $classroom->notes =  $request->notes;
+            $classroom->save();
 
+            $classroom->teachers()->attach($request->teachers);
+   
             flash()->addSuccess('Classroom created successfully');
 
             return redirect()->route('classrooms.index');
@@ -102,7 +112,16 @@ class ClassroomController extends Controller
         if($validated)
         {
             try{
-                $classroom->update($request->all());
+
+                $classroom->name = $request->name;
+                $classroom->stage_id =  $request->stage;
+                $classroom->stage_class_id = $request->stage_class;
+                $classroom->notes =  $request->notes;
+                $classroom->save();
+    
+                $classroom->teachers()->sync($request->teachers);
+    
+
                 flash()->addSuccess('تم تعديل البيانات بنجاح');
                 return redirect()->back();
             }catch(\Exception $ex){

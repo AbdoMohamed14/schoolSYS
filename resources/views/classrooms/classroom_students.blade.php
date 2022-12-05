@@ -23,6 +23,7 @@
 <!-- breadcrumb -->
 @endsection
 @section('content')
+
 <!-- row -->
 <div class="row">
     <div class="col-md-12 mb-30">
@@ -84,7 +85,39 @@
                                 </div>
                         @endforeach
                     </table>
-                </div>              </div>
+                </div> 
+                
+                <div class="col-sm-6">
+                    <h4 class="mb-0">جدول الحصص</h4>
+                </div>      
+                <div class="table-responsive">
+                    <table id="datatable" class="table  table-hover table-sm table-bordered p-0" data-page-length="50"
+                           style="text-align: center">
+                        <thead>
+                        <tr class="table-success">
+                            <th>اليوم</th>
+                            <th>الحصةالأولى</th>
+                            <th>الحصةالثانية</th>
+                            <th>الحصةالثالثة</th>
+                            <th>الحصةالرابعة</th>
+                            <th>الحصةالخامسة</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($classroom->session_table as $session)
+                                <tr>
+                                    <td>{{$session->day}}</td>
+                                    <td>{{$session->first_session}}</td>
+                                    <td>{{$session->second_session}}</td>
+                                    <td>{{$session->third_session}}</td>
+                                    <td>{{$session->fourth_session}}</td>
+                                    <td>{{$session->fifth_session}}</td>
+                                </tr>
+                            @endforeach
+
+                    </table>
+                </div>       
+            </div>
         </div>
     </div>
 </div>

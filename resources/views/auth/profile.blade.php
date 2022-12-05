@@ -10,7 +10,7 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0">{{trans('teachers.teacher_info')}}</h4>
+            <h4 class="mb-0"> {{trans('students.student_info')}}</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
@@ -27,6 +27,8 @@
 @php
     $slug = (app()->getLocale()=='en')?'_en':'_ar';
     $name_attr = 'name'.$slug;
+    $parent_name_attr = 'parent_name'.$slug;
+    
 @endphp
 <!-- row -->
 <div class="row">
@@ -39,12 +41,19 @@
                         <div class="col-lg-4">
                           <div class="card mb-4">
                             <div class="card-body text-center">
-                              @if ($teacher->avatar)
-                                <img src="{{asset('teacher_avatars/'.$teacher->avatar)}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                              @else
-                                <img src="{{asset('teacher_avatars/staticpro.jpg')}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                              @endif
-                              <h5 class="my-3">{{$teacher->$name_attr}}</h5>
+                              <form action="">
+                                @if ($user->avatar)
+                                <img src="{{asset('assets/images/'.$user->avatar)}}" alt="avatar"
+                                class="rounded-circle img-fluid" style="width: 150px;">
+                                
+                                @else
+                                <img src="{{asset('students_images/staticpro.jpg')}}" alt="avatar"
+                                class="rounded-circle img-fluid" style="width: 150px;">
+                                @endif
+                                
+                              </form>
+                                  
+                              <h5 class="my-3">{{$user->name}}</h5>
                               <p class="text-muted mb-1">Full Stack Developer</p>
                               <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
                             </div>
@@ -81,37 +90,37 @@
                             <div class="card-body">
                               <div class="row">
                                 <div class="col-sm-3">
-                                  <p class="mb-0">{{trans('teachers.teacher_name')}}</p>
+                                  <p class="mb-0">{{trans('students.student_name')}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                  <p class="text-muted mb-0">{{$teacher->$name_attr}}</p>
+                                  <p class="text-muted mb-0">{{$user->name}}</p>
                                 </div>
                               </div>
                               <hr>
                               <div class="row">
                                 <div class="col-sm-3">
-                                  <p class="mb-0">{{trans('teachers.email')}}</p>
+                                  <p class="mb-0">{{trans('profile.email')}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                  <p class="text-muted mb-0">{{$teacher->email}}</p>
+                                  <p class="text-muted mb-0">{{$user->email}}</p>
                                 </div>
                               </div>
                               <hr>
                               <div class="row">
                                 <div class="col-sm-3">
-                                  <p class="mb-0">{{trans('teachers.teacher_subject')}}</p>
+                                  <p class="mb-0">{{trans('profile.address')}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                  <p class="text-muted mb-0">{{$teacher->subject->$name_attr}}</p>
+                                  <p class="text-muted mb-0">{{$user->addresss}}</p>
                                 </div>
                               </div>
                               <hr>
                               <div class="row">
                                 <div class="col-sm-3">
-                                  <p class="mb-0">{{trans('teachers.mobile')}}</p>
+                                  <p class="mb-0">{{trans('profile.blood_type')}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                  <p class="text-muted mb-0">{{$teacher->phone}}</p>
+                                  <p class="text-muted mb-0">tttttt</p>
                                 </div>
                               </div>
                               <hr>
@@ -120,26 +129,44 @@
                                   <p class="mb-0">{{trans('teachers.address')}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                  <p class="text-muted mb-0">{{$teacher->address}}</p>
+                                  <p class="text-muted mb-0">llllllll</p>
                                 </div>
                               </div>
+                              <hr>
+                              <div class="row">
+                                <div class="col-sm-3">
+                                  <p class="mb-0">{{trans('students.parent')}}</p>
+                                </div>
+                                <div class="col-sm-9">
+                                  <p class="text-muted mb-0">vvvvvvv</p>
+                                </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                <div class="col-sm-3">
+                                  <p class="mb-0">{{trans('students.Parent_phone')}}</p>
+                                </div>
+                                <div class="col-sm-9">
+                                  <p class="text-muted mb-0">lllllllll</p>
+                                </div>
+                              </div>
+
                             </div>
                           </div>
                           <div class="row">
                             <div class="col-md-6">
                               <div class="card mb-4 mb-md-0">
                                 <div class="card-body">
-                                  <p class="mb-4"> الفصول
+                                  <p class="mb-4"> {{trans('students.student_rate')}}
                                   </p>
-                                @foreach ($teacher->classrooms as $classroom)
-                                    
-                                  <p class="mb-1" style="font-size: .77rem;">{{$classroom->name}}</p>
+                                  {{-- @foreach ($student->stageClass->subject as $subject) --}}
+                                  <p class="mb-1" style="font-size: .77rem;">dddddddfe</p>
                                   <div class="progress rounded" style="height: 5px;">
                                     <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
                                       aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
+                                  </div>  
                                   <br>
-                                @endforeach
+                                  {{-- @endforeach --}}
                                 </div>
                               </div>
                             </div>

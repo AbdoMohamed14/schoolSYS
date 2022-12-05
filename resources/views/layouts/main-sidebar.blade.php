@@ -86,6 +86,11 @@
                         <a href="{{route('subjects.index')}}"><i class="ti-blackboard"></i><span class="right-nav-text"><b>{{trans('subjects.subjects')}}</b></span>
                             <span class="badge badge-pill badge-danger float-right mt-1">59</span> </a>
                     </li>
+
+                    <li>
+                        <a href="{{route('sessionTables.index')}}"><i class="ti-blackboard"></i><span class="right-nav-text"><b>{{trans('main.session_tables')}}</b></span>
+                            <span class="badge badge-pill badge-danger float-right mt-1">59</span> </a>
+                    </li>
                     <!-- menu item Form-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Form">

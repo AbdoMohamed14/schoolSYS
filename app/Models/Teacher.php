@@ -21,6 +21,6 @@ class Teacher extends Model
 
     public function classrooms()
     {
-        return $this->belongsToMany(Teacher_classroom::class, 'teacher_classrooms');
+        return $this->belongsToMany(Classroom::class, 'teacher_classrooms');
     }
 }

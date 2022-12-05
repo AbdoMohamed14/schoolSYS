@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\SessionTableController;
 use App\Http\Controllers\StageClassController;
 use App\Http\Controllers\StageController;
 use App\Http\Controllers\StudentController;
@@ -52,6 +54,10 @@ Route::group(
         Route::resource('subjects', SubjectController::class);
 
         Route::resource('lessons', LessonController::class);
+
+        Route::resource('sessionTables', SessionTableController::class);
+
+        Route::get('profile', [ProfileController::class, 'index'])->name('myProfile');
     });
 
 
