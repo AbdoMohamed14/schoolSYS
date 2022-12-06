@@ -69,8 +69,8 @@ empty
                                 @php $i++; @endphp
                                 <td><b>{{$i}}</b></td>
                                 <td><b>{{$classroom->name}}</b></td>
-                                <td><b>{{$classroom->stageClass->name_ar}}</b></td>
-                                <td><b>{{$classroom->stage->name_ar}}</b></td>
+                                <td><b>{{$classroom->stageClass->$name_attr}}</b></td>
+                                <td><b>{{$classroom->stage->$name_attr}}</b></td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                         data-target="#edit{{ $classroom->id }}"
