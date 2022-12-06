@@ -100,7 +100,7 @@ $slug = ($lang == 'en')?"_en":"_ar";
                                             </div>
                                             <div class="modal-body">
                                                 <!-- edit_form -->
-                                                <form action="{{ route('stage_classes.update', 'test') }}" method="post">
+                                                <form action="{{ route('stage_classes.update',$stage_class->id) }}" method="post">
                                                     {{ method_field('patch') }}
                                                     @csrf
                                                     <div class="row">
@@ -112,8 +112,6 @@ $slug = ($lang == 'en')?"_en":"_ar";
                                                                 class="form-control"
                                                                 value="{{ $stage_class->name_ar }}"
                                                                 required>
-                                                            <input id="id" type="hidden" name="id" class="form-control"
-                                                                value="{{ $stage_class->id }}">
                                                         </div>
                                                         <div class="col">
                                                             <label for="Name_en"
@@ -123,7 +121,20 @@ $slug = ($lang == 'en')?"_en":"_ar";
                                                                 value="{{ $stage_class->name_en }}"
                                                                 name="name_en" required>
                                                         </div>
+
                                                     </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label for="teachers">{{trans('subjects.subjects')}}</label>
+                                                            <select class="custom-select" name="subjects[]" multiple>
+                                                                <option selected disabled style="color: darkgoldenrod">you can select many subjects</option>
+                                                                @foreach ($subjects as $subject)
+                                                                    <option value="{{$subject->id}}">{{$subject->$name_attr}}</option>
+                                                                @endforeach
+                                                              </select>
+                                                        </div>
+                                                    </div>
+                            
                                                     <br>
                                                     <div class="form-group">
                                                         <label
@@ -224,16 +235,30 @@ $slug = ($lang == 'en')?"_en":"_ar";
                             </div>
                         </div>
                         <br>
+
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">{{ trans('stage_classes.stage') }}
                                 :</label>
                                 <select name="stage" id="" class="form-control">
-                                    <option value="">أختر مرحلة</option>
+                                    <option value="">{{trans('stage_classes.stage')}}</option>
                                     @foreach ($stages as $stage)
-                                    <option value="{{$stage->id}}">{{$stage->name_ar}}</option>
+                                    <option value="{{$stage->id}}">{{$stage->$name_attr}}</option>
                                     @endforeach
                                 </select>
                         </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label for="teachers">{{trans('subjects.subjects')}}</label>
+                                <select class="custom-select" name="subjects[]" multiple>
+                                    <option selected disabled style="color: darkgoldenrod">you can select many subjects</option>
+                                    @foreach ($subjects as $subject)
+                                        <option value="{{$subject->id}}">{{$subject->$name_attr}}</option>
+                                    @endforeach
+                                  </select>
+                            </div>
+                        </div>
+
                         <br><br>
                 </div>
                 <div class="modal-footer">

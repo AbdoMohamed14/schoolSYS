@@ -264,7 +264,7 @@ empty
                                             <label for="exampleFormControlTextarea1">{{ trans('teachers.teacher_subject') }}
                                                 :</label>
                                             <select name="subject" id="" class="form-control">
-                                                <option value="" disabled selected>أختر مادة</option>
+                                                <option value="" disabled selected>{{trans('subjects.subject_name')}}</option>
                                                 @foreach ($subjects as $subject)
                                                 <option value="{{$subject->id}}">{{$subject->$name_attr}}</option>
                                                 @endforeach

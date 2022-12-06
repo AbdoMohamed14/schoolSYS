@@ -19,8 +19,8 @@ class StageClass extends Model
     }
 
 
-    public function subject()
+    public function subjects()
     {
-        return $this->hasMany(Subject::class, 'stage_class_id', 'id');
+        return $this->belongsToMany(Subject::class, 'stage_class_subjects');
     }
 }

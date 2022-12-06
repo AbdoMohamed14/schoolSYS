@@ -5,6 +5,11 @@
     empty
 @stop
 @endsection
+
+@php
+    $slug = (app()->getLocale() == 'en')?'_en':'_ar';
+    $name_attr = 'name'.$slug;
+@endphp
 @section('page-header')
 <!-- breadcrumb -->
 <div class="page-title">
@@ -35,7 +40,7 @@
                         <thead>
                         <tr class="table-success">
                             <th>#</th>
-                            <th>{{ trans('students.student_name_ar') }}</th>
+                            <th>{{ trans('students.student_name') }}</th>
                             <th>{{ trans('students.stage') }}</th>
                             <th>{{ trans('students.stage_class') }}</th>
                             <th>{{ trans('students.classroom') }}</th>
@@ -50,9 +55,9 @@
                             <tr>
                                 <?php $i++; ?>
                                 <td>{{ $i }}</td>
-                                <td>{{ $student->name_ar }}</td>
-                                <td>{{ $student->stage->name_ar }}</td>
-                                <td>{{ $student->stageClass->name_ar }}</td>
+                                <td>{{ $student->$name_attr }}</td>
+                                <td>{{ $student->stage->$name_attr }}</td>
+                                <td>{{ $student->stageClass->$name_attr }}</td>
                                 <td>{{ $student->classroom->name }}</td>
                                 <td>{{ $student->blood }}</td>
                                 <td>{{ $student->religion }}</td>
@@ -86,37 +91,6 @@
                         @endforeach
                     </table>
                 </div> 
-                
-                <div class="col-sm-6">
-                    <h4 class="mb-0">جدول الحصص</h4>
-                </div>      
-                <div class="table-responsive">
-                    <table id="datatable" class="table  table-hover table-sm table-bordered p-0" data-page-length="50"
-                           style="text-align: center">
-                        <thead>
-                        <tr class="table-success">
-                            <th>اليوم</th>
-                            <th>الحصةالأولى</th>
-                            <th>الحصةالثانية</th>
-                            <th>الحصةالثالثة</th>
-                            <th>الحصةالرابعة</th>
-                            <th>الحصةالخامسة</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($classroom->session_table as $session)
-                                <tr>
-                                    <td>{{$session->day}}</td>
-                                    <td>{{$session->first_session}}</td>
-                                    <td>{{$session->second_session}}</td>
-                                    <td>{{$session->third_session}}</td>
-                                    <td>{{$session->fourth_session}}</td>
-                                    <td>{{$session->fifth_session}}</td>
-                                </tr>
-                            @endforeach
-
-                    </table>
-                </div>       
             </div>
         </div>
     </div>

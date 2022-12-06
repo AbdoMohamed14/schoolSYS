@@ -29,7 +29,8 @@ class AddStudent extends Component
     $parent_name_en,
     $parent_phone,
     $parent_blood_type,
-    $parent_address
+    $parent_address,
+    $parent_email
     
     ;
 

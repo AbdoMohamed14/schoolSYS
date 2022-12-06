@@ -30,6 +30,7 @@ return [
     'teacher_subject' => 'Teacher subject',
     'email' => 'Email',
     'edit_teacher' => 'Edit teacher',
+    'teachers' => 'Teachers'
     
 
 

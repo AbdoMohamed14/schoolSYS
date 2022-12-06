@@ -154,7 +154,7 @@
                                 <div class="card-body">
                                   <p class="mb-4"> {{trans('students.student_rate')}}
                                   </p>
-                                  @foreach ($student->stageClass->subject as $subject)
+                                  @foreach ($student->stageClass->subjects as $subject)
                                   <p class="mb-1" style="font-size: .77rem;">{{$subject->$name_attr}}</p>
                                   <div class="progress rounded" style="height: 5px;">
                                     <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
