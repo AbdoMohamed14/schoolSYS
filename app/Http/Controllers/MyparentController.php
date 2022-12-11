@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\storeParentRequest;
 use App\Models\Myparent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
 
 class MyparentController extends Controller
 {
@@ -14,7 +18,11 @@ class MyparentController extends Controller
      */
     public function index()
     {
-        //
+        $parents = Myparent::all();
+
+        return view('parents.index',[
+            'parents'=>$parents
+        ]);
     }
 
     /**
@@ -33,9 +41,28 @@ class MyparentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(storeParentRequest $request)
     {
-        //
+        try{
+
+            $validated = $request->validated();
+
+            Myparent::create([
+                'name_ar' => $request->name_ar,
+                'name_en' => $request->name_en,
+                'email'  => $request->email,
+                'password' => Hash::make(Str::random(8)),
+                'phone' => $request->phone,
+                'address'=> $request->address,
+            ]);
+
+            flash()->addSuccess(trans('toaster.success'));
+
+            return redirect()->back();
+
+        }catch(\Exception $ex){
+            return redirect()->back()->withErrors(['errors'=>$ex->getMessage()]);
+        }
     }
 
     /**

@@ -47,10 +47,15 @@
                             <li> <a href="calendar-list.html">List Calendar</a> </li>
                         </ul>
                     </li>
-                    <!-- menu item todo-->
+                    <!-- menu item Classrooms-->
                     <li>
                         <a href="{{route('classrooms.index')}}"><i class="ti-menu-alt"></i><span class="right-nav-text">
                                 <b>{{trans('main.classrooms')}}</b></span> </a>
+                    </li>
+                    <!-- menu item Parents-->
+                    <li>
+                        <a href="{{route('parents.index')}}"><i class="ti-menu-alt"></i><span class="right-nav-text">
+                                <b>{{trans('main.parents')}}</b></span> </a>
                     </li>
                     <!-- menu item students-->
                     <li>

@@ -49,7 +49,6 @@ empty
                             <tr>
                                 <th>#</th>
                                 <th><b>{{trans('subjects.subjects')}}</b></th>
-                                <th><b>{{trans('stage_classes.stage_class')}}</b></th>
                                 <th><b>{{trans('stages.actions')}}</b></th>
 
                             </tr>
@@ -68,7 +67,6 @@ empty
                                 @php $i++; @endphp
                                 <td><b>{{$i}}</b></td>
                                 <td><b>{{$subject->$name_attr}}</b></td>
-                                <td><b>{{$subject->stage_class->$name_attr}}</b></td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                         data-target="#edit{{ $subject->id }}"
@@ -118,18 +116,6 @@ empty
                                             </div>
                                         </div>
                                         <br>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">{{ trans('stage_classes.stage') }}
-                                                :</label>
-                                            <select name="stage_class" id="" class="form-control">
-                                                <option value="{{$subject->stage_class->id}}" selected>{{$subject->stage_class->$name_attr}}</option>
-                                                @foreach ($stage_classes as $stage_class)
-                                                <option value="{{$stage_class->id}}">{{$stage_class->$name_attr}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-
                                         <div class="row">
                                             <div class="col">
                                                 <label for="name" class="mr-sm-2">{{
@@ -212,20 +198,20 @@ empty
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('subjects.subject_name') }}
                                                     :</label>
-                                                <input id="Name" type="text" name="name_ar" class="form-control">
+                                                <input id="Name" required type="text" name="name_ar" class="form-control">
                                             </div>
                                             <div class="col">
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('subjects.subject_name_en') }}
                                                     :</label>
-                                                <input id="Name" type="text" name="name_en" class="form-control">
+                                                <input id="Name" required type="text" name="name_en" class="form-control">
                                             </div>
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1">{{ trans('stage_classes.stage') }}
                                                 :</label>
-                                            <select name="stage_class" id="" class="form-control">
+                                            <select name="stage_class" required id="" class="form-control">
                                                 <option value="" disabled selected>{{trans('stage_classes.choose')}}</option>
                                                 @foreach ($stage_classes as $stage_class)
                                                 <option value="{{$stage_class->id}}">{{$stage_class->$name_attr}}</option>

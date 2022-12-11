@@ -55,6 +55,13 @@
 
     @include('layouts.footer-scripts')
 
+    @livewireScripts
+
+    @stack('scripts')
+
+
 </body>
+
+
 
 </html>

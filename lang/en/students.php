@@ -21,6 +21,7 @@ return [
     'submit_info' => 'Save data',
     'address' => 'Address',
     'choose'  => 'choose',
+    'parent_name' => 'Parent Name',
     'parent_name_ar'  => 'Parent name ar',
     'parent_name_en'  => 'Parent name en',
     'Parent_phone' => 'Parent mobile',
@@ -35,6 +36,10 @@ return [
     'add_student' => 'Add student',
     'student_rate' => 'Student rate',
     'parent' => 'Parent',
+    'add_parent' => 'Add Parent',
+    'parents' => 'Parents',
+
+
 
 
     

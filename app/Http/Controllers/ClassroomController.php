@@ -54,14 +54,14 @@ class ClassroomController extends Controller
                 
             $validated = $request->validated();
 
-            $classroom = new Classroom;
-            $classroom->name = $request->name;
-            $classroom->stage_id =  $request->stage;
-            $classroom->stage_class_id = $request->stage_class;
-            $classroom->notes =  $request->notes;
-            $classroom->save();
+            Classroom::create([
+                'name' => $request->name,
+                'stage_id' => $request->stage,
+                'stage_class_id' => $request->stage_class,
+                'notes' => $request->notes
 
-            $classroom->teachers()->attach($request->teachers);
+            ])->teachers()->attach($request->teachers);
+
    
             flash()->addSuccess('Classroom created successfully');
 
@@ -107,19 +107,17 @@ class ClassroomController extends Controller
     public function update(storeClassroomRequest $request, Classroom $classroom)
     {
 
-        $validated = $request->validated();
-
-        if($validated)
-        {
             try{
 
-                $classroom->name = $request->name;
-                $classroom->stage_id =  $request->stage;
-                $classroom->stage_class_id = $request->stage_class;
-                $classroom->notes =  $request->notes;
-                $classroom->save();
-    
-                $classroom->teachers()->sync($request->teachers);
+                $validated = $request->validated();
+
+                    Classroom::where('id', $classroom->id)->update([
+                    'name' => $request->name,
+                    'stage_id' => $request->stage,
+                    'stage_class_id' => $request->stage_class,
+                    'notes'   => $request->notes,
+                    
+                ])->teachers()->sync($request->teachers);
     
 
                 flash()->addSuccess('تم تعديل البيانات بنجاح');
@@ -127,7 +125,7 @@ class ClassroomController extends Controller
             }catch(\Exception $ex){
                 return redirect()->back()->withErrors(['error'=>$ex->getMessage()]);
             }
-        }
+        
 
 
 

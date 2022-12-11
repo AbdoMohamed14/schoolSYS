@@ -248,7 +248,9 @@ th {
 
 label {
   display: inline-block;
-  margin-bottom: .5rem; }
+  margin-bottom: .5rem;
+  font-weight: bold;
+}
 
 button {
   border-radius: 0; }
@@ -1763,7 +1765,7 @@ pre code {
   opacity: 1; }
 
 select.form-control:not([size]):not([multiple]) {
-  height: calc(2.25rem + 2px); }
+  height: calc(2.25rem + 15px); }
 
 select.form-control:focus::-ms-value {
   color: #495057;

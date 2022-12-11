@@ -5,8 +5,8 @@
 <!-- plugin_path -->
 
 <script type="text/javascript">var plugin_path = '{{ asset('assets/js') }}/';</script>
-
-
+{{-- select to --}}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <!-- chart -->
 <script src="{{ URL::asset('assets/js/chart-init.js') }}"></script>
 <!-- calendar -->
@@ -28,3 +28,6 @@
 <script src="{{ URL::asset('assets/js/lobilist.js') }}"></script>
 <!-- custom -->
 <script src="{{ URL::asset('assets/js/custom.js') }}"></script>
+
+
+

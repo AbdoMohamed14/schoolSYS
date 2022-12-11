@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone');
             $table->string('address');
-            $table->bigInteger('subject_id')->nullable();
             $table->string('avatar')->nullable();
 
             $table->timestamps();

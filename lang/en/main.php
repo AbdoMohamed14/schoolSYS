@@ -9,6 +9,7 @@ return [
     'classrooms' => 'Classrooms',
     'search' => 'Search',
     'session_tables'=> 'Activity Table',
+    'parents' => 'Parents', 
 
 
 ];

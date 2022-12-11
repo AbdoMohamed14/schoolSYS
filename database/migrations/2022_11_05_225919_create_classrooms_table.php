@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('classrooms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('stage_id');
-            $table->bigInteger('stage_class_id');
+            $table->unsignedBigInteger('stage_id');
+            $table->unsignedBigInteger('stage_class_id');
+            $table->foreign('stage_id')->references('id')->on('stages');
+            $table->foreign('stage_class_id')->references('id')->on('stage_classes');
             $table->string('notes')->nullable();
             $table->timestamps();
         });

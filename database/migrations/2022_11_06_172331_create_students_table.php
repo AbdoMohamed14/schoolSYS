@@ -21,14 +21,12 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('religion');
             $table->string('address');
-            $table->bigInteger('stage_id');
-            $table->bigInteger('stage_class_id');
-            $table->bigInteger('classroom_id');
-            $table->string('parent_name_ar');
-            $table->string('parent_name_en');
-            $table->string('parent_phone');
-            $table->string('parent_blood');
-            $table->string('parent_address');
+            $table->unsignedBigInteger('stage_class_id');
+            $table->foreign('stage_class_id')->references('id')->on('stage_classes');
+            $table->unsignedBigInteger('classroom_id');
+            $table->foreign('classroom_id')->references('id')->on('classrooms');
+            $table->unsignedBigInteger('parent_id');
+            $table->foreign('parent_id')->references('id')->on('myparents');
             $table->timestamps();
         });
 

@@ -12,7 +12,7 @@ return [
     'submit' => 'حفظ البيانات',
     'stage'  => 'المرحلة الدراسية',
     'stage_class'  => 'الصف الدراسي',
-    'blood_type'   => 'فصيلة الدم',
+    'blood'   => 'فصيلة الدم',
     'student_image'=> 'صورة الطالب',
     'delete'  => 'حذف', 
     'edit' => 'تعديل',  
@@ -21,6 +21,7 @@ return [
     'submit_info' => 'تأكيد المعلومات',
     'address' => 'العنوان',
     'choose'  => 'أختر',
+    'parent_name' => 'ولى الأمر',
     'parent_name_ar'  => 'إسم ولي الأمر',
     'parent_name_en'  => 'إسم ولي الأمر بالإنجليزية',
     'Parent_phone' => 'رقم الهاتف',
@@ -35,6 +36,9 @@ return [
     'add_student' => 'إضافة طالب',
     'student_rate' => 'تقييم الطالب',
     'parent' => 'ولي الأمر',
+    'add_parent' => 'إضافة ولي أمر',
+    'parents' => 'أولياء الأمور',
+    'image' => 'صورة الطالب',
 
 
     

@@ -24,11 +24,7 @@ class storeClassroomRequest extends FormRequest
     public function rules()
     {
 
-        if($this->classroom){
-            $id = $this->classroom->id;
-        }else{
-            $id = '';
-        }
+        $id = ($this->classroom)?$this->classroom->id:null;
         return [
             'name' => 'required|string|unique:classrooms,name,' . $id,
             'stage' => 'required|integer',

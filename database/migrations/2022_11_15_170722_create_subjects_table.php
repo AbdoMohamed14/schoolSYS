@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('name_ar');
             $table->string('name_en');
             $table->string('image')->nullable();
-            $table->bigInteger('stage_class_id');
             $table->timestamps();
         });
     }

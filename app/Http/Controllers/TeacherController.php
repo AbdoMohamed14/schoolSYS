@@ -46,11 +46,10 @@ class TeacherController extends Controller
             Teacher::create([
                 'name_ar' => $request->name_ar,
                 'name_en' => $request->name_en,
-                'subject_id' => $request->subject,
                 'email'  => $request->email,
                 'phone' => $request->phone,
                 'address'=> $request->address,
-            ]);
+            ])->subjects()->attach($request->subjects);
 
             flash()->addSuccess(trans('toaster.success'));
 
@@ -97,7 +96,7 @@ class TeacherController extends Controller
 
             $validated = $request->validated();
 
-            $teacher->update($request->all());
+            Teacher::where('id', $teacher->id)->update($request->all())->subjects()->sync($request->subjects);
 
             flash()->addSuccess(trans('toaster.success'));
 

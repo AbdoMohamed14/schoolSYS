@@ -9,7 +9,9 @@ class Myparent extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name_ar', 'name_en', 'image', 'address', 'phone' ];
+    protected $fillable = ['name_ar', 'name_en', 'image', 'address', 'email', 'password', 'phone' ];
+
+    
 
 
     public function myStudents()

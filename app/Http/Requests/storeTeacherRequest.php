@@ -26,15 +26,13 @@ class storeTeacherRequest extends FormRequest
 
         $id =($this->teacher)?$this->teacher->id:null;
 
-
-        
         return [
-            'name_ar'=> 'required|string|max:50|unique:teachers,name_ar,'.$id,
-            'name_en'=> 'required|string|max:50|unique:teachers,name_en,'.$id,
-            'email'  => 'nullable|email|unique:teachers,email,'.$id,
-            'subject'=> 'required|integer',
-            'phone'  => 'required|string|unique:teachers,phone,'.$id,
-            'address'=> 'required|string',
+            'name_ar' => 'required|string|max:50|unique:teachers,name_ar,'.$id,
+            'name_en' => 'required|string|max:50|unique:teachers,name_en,'.$id,
+            'email'   => 'nullable|email|unique:teachers,email,'.$id,
+            'subjects'=> 'required|array',
+            'phone'   => 'required|string|unique:teachers,phone,'.$id,
+            'address' => 'required|string',
         ];
     }
 }

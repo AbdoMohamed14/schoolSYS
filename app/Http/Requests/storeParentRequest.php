@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class storeSupjectRequest extends FormRequest
+class storeParentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +23,16 @@ class storeSupjectRequest extends FormRequest
      */
     public function rules()
     {
+
+        $id =($this->teacher)?$this->teacher->id:null;
+
         return [
-            'name_en' => 'required|string|max:50',
-            'name_ar' => 'required|string|max:50',
-            'image' =>   'image',
+            'name_ar'=> 'required|string|max:50|unique:teachers,name_ar,'.$id,
+            'name_en'=> 'required|string|max:50|unique:teachers,name_en,'.$id,
+            'email'  => 'nullable|email|unique:teachers,email,'.$id,
+            'phone'  => 'required|string|unique:teachers,phone,'.$id,
+            'address'=> 'required|string',
         ];
+
     }
 }

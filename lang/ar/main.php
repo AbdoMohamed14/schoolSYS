@@ -9,6 +9,7 @@ return [
     'classrooms' => 'الفصول الدراسية',
     'search' => 'بحث',
     'session_tables'=> 'جداول الحصص',
+    'parents' => 'أولياء الأمور', 
 
 
 ];

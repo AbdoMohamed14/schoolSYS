@@ -7,6 +7,7 @@ use App\Models\StageClass;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class SubjectController extends Controller
 {
@@ -43,20 +44,19 @@ class SubjectController extends Controller
         try{
         $validated = $request->validated();
 
-        $newPhotoName ='' ;
+        $newPhotoName =null ;
 
         if($request->image){
 
             $newPhotoName = time() . '-' . $request->name_en . '.' . $request->image->extension();
 
-            $request->image->move(public_path('subject_images'), $newPhotoName);
+            Storage::putFileAs('public/subject_imags', $request->image, $newPhotoName);
         }
 
         Subject::create([
             'name_ar'=>$request->name_ar,
             'name_en'=>$request->name_en,
             'image'  =>$newPhotoName,
-            'stage_class_id'=>$request->stage_class,
         ]);
 
         flash()->addSuccess(trans('toaster.success'));
@@ -103,11 +103,12 @@ class SubjectController extends Controller
             try{
                 if($request->image){
                     
-                    File::delete('subject_images/'.$subject->image);
-
+                    if(Storage::exists('public/subject_imags/'.$subject->image)){
+                        Storage::delete('public/subject_imags/'.$subject->image);
+                    }
                     $newPhotoName = time() . '-' . $request->name_en . '.' . $request->image->extension();
 
-                    $request->image->move(public_path('subject_images'), $newPhotoName);
+                    Storage::putFileAs('public/subject_imags', $request->image, $newPhotoName);
 
                     $subject->image = $newPhotoName;
                 }
@@ -142,7 +143,9 @@ class SubjectController extends Controller
     public function destroy(Subject $subject)
     {
 
-        File::delete('subject_images/'.$subject->image);
+        if(Storage::exists('public/subject_imags/'.$subject->image)){
+            Storage::delete('public/subject_imags/'.$subject->image);
+        }
 
         $subject->delete($subject->id);
 

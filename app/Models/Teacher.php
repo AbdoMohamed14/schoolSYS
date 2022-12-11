@@ -9,13 +9,13 @@ class Teacher extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name_ar', 'name_en', 'subject_id', 'avatar', 'email', 'address', 'phone'];
+    protected $fillable = ['name_ar', 'name_en', 'avatar', 'email', 'address', 'phone'];
 
 
 
-    public function subject()
+    public function subjects()
     {
-        return $this->hasOne(Subject::class, 'id', 'subject_id');
+        return $this->belongsToMany(Subject::class, 'teachers_subjects');
     }
 
 

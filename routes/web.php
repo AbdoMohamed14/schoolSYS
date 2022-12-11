@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\MyparentController;
 use App\Http\Controllers\SessionTableController;
 use App\Http\Controllers\StageClassController;
 use App\Http\Controllers\StageController;
@@ -46,6 +47,8 @@ Route::group(
         Route::resource('stage_classes', StageClassController::class);
 
         Route::resource('classrooms', ClassroomController::class);
+
+        Route::resource('parents', MyparentController::class);
 
         Route::resource('students', StudentController::class);
 

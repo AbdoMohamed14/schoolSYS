@@ -11,6 +11,8 @@ $lang = app()->getLocale();
 
 $slug = ($lang == 'en')?"_en":"_ar";
 
+$name_attr = 'name'.$slug;
+
 @endphp
 @section('page-header')
 <!-- breadcrumb -->
@@ -63,7 +65,6 @@ $slug = ($lang == 'en')?"_en":"_ar";
                         <tbody>
                             @php
                              $i = 0;
-                             $name_attr = 'name'.$slug;
                              
                              @endphp
 
@@ -226,12 +227,12 @@ $slug = ($lang == 'en')?"_en":"_ar";
                             <div class="col">
                                 <label for="name_ar" class="mr-sm-2">{{ trans('stage_classes.stageClass_name_ar') }}
                                     :</label>
-                                <input id="Name" type="text" name="name_ar" class="form-control">
+                                <input id="Name" required type="text" name="name_ar" class="form-control">
                             </div>
                             <div class="col">
                                 <label for="name_en" class="mr-sm-2">{{ trans('stage_classes.stageClass_name_en') }}
                                     :</label>
-                                <input type="text" class="form-control" name="name_en">
+                                <input type="text" required class="form-control" name="name_en">
                             </div>
                         </div>
                         <br>
@@ -239,7 +240,7 @@ $slug = ($lang == 'en')?"_en":"_ar";
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">{{ trans('stage_classes.stage') }}
                                 :</label>
-                                <select name="stage" id="" class="form-control">
+                                <select name="stage" required id="" class="form-control">
                                     <option value="">{{trans('stage_classes.stage')}}</option>
                                     @foreach ($stages as $stage)
                                     <option value="{{$stage->id}}">{{$stage->$name_attr}}</option>
@@ -250,7 +251,7 @@ $slug = ($lang == 'en')?"_en":"_ar";
                         <div class="row">
                             <div class="col">
                                 <label for="teachers">{{trans('subjects.subjects')}}</label>
-                                <select class="custom-select" name="subjects[]" multiple>
+                                <select class="custom-select" required name="subjects[]" multiple>
                                     <option selected disabled style="color: darkgoldenrod">you can select many subjects</option>
                                     @foreach ($subjects as $subject)
                                         <option value="{{$subject->id}}">{{$subject->$name_attr}}</option>

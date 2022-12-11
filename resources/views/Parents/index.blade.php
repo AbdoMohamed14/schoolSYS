@@ -10,7 +10,7 @@ empty
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0"> {{trans('teachers.teachers')}}</h4>
+            <h4 class="mb-0"> {{trans('students.parents')}}</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
@@ -39,7 +39,7 @@ empty
             <div class="card-body">
 
                 <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
-                    {{ trans('teachers.add_teacher') }}
+                    {{ trans('students.add_parent') }}
                 </button>
                 <br><br>
                       
@@ -48,7 +48,7 @@ empty
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th><b>{{trans('teachers.teacher_name')}}</b></th>
+                                <th><b>{{trans('students.parent_name')}}</b></th>
                                 <th><b>{{trans('stages.actions')}}</b></th>
 
                             </tr>
@@ -62,26 +62,26 @@ empty
 
                             @endphp
 
-                            @foreach ($teachers as $teacher)
+                            @foreach ($parents as $parent)
                             <tr>
                                 @php $i++; @endphp
                                 <td><b>{{$i}}</b></td>
-                                <td><b>{{$teacher->$name_attr}}</b></td>
+                                <td><b>{{$parent->$name_attr}}</b></td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                                        data-target="#edit{{ $teacher->id }}"
+                                        data-target="#edit{{ $parent->id }}"
                                         title="{{ trans('students.edit') }}"><i class="fa fa-edit"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                        data-target="#delete{{ $teacher->id }}"
+                                        data-target="#delete{{ $parent->id }}"
                                         title="{{ trans('students.delete') }}"><i class="fa fa-trash"></i></button>
 
-                                        <a type="button" href="{{route('teachers.show', $teacher->id)}}" class="btn btn-warning btn-sm" title="{{ trans('students.show_students') }}"><i style="color: #ffffff" class="fa fa-eye"></i>
+                                        <a type="button" href="{{route('teachers.show', $parent->id)}}" class="btn btn-warning btn-sm" title="{{ trans('students.show_students') }}"><i style="color: #ffffff" class="fa fa-eye"></i>
                                     
                                 </td>
 
                             </tr>
                             <!-- edit_modal_Classroom -->
-                            <div class="modal fade" id="edit{{ $teacher->id }}" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="edit{{ $parent->id }}" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -98,7 +98,7 @@ empty
 
                                 <!-- edit_form -->
                              
-                                    <form action="{{ route('teachers.update', $teacher->id) }}" method="POST">
+                                    <form action="{{ route('teachers.update', $parent->id) }}" method="POST">
                                         @csrf
                                         @method('PATCH')
                                         <div class="row">
@@ -106,13 +106,13 @@ empty
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('teachers.teacher_name') }}
                                                     :</label>
-                                                <input id="Name" type="text" value="{{$teacher->name_ar}}" name="name_ar" class="form-control">
+                                                <input id="Name" type="text" value="{{$parent->name_ar}}" name="name_ar" class="form-control">
                                             </div>
                                             <div class="col">
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('teachers.teacher_name_en') }}
                                                     :</label>
-                                                <input id="Name" type="text" value="{{$teacher->name_en}}" name="name_en" class="form-control">
+                                                <input id="Name" type="text" value="{{$parent->name_en}}" name="name_en" class="form-control">
                                             </div>
                                         </div>
                                         <br>
@@ -121,7 +121,7 @@ empty
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('teachers.email') }}
                                                     :</label>
-                                                <input id="Name" type="text" value="{{$teacher->email}}" name="email" class="form-control">
+                                                <input id="Name" type="text" value="{{$parent->email}}" name="email" class="form-control">
                                             </div>
                                         </div>
                                         <br>
@@ -130,29 +130,15 @@ empty
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('teachers.mobile') }}
                                                     :</label>
-                                                <input id="Name" type="text" value="{{$teacher->phone}}" name="phone" class="form-control">
+                                                <input id="Name" type="text" value="{{$parent->phone}}" name="phone" class="form-control">
                                             </div>
                                             <div class="col">
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('teachers.address') }}
                                                     :</label>
-                                                <input id="Name" type="text" value="{{$teacher->address}}" name="address" class="form-control">
+                                                <input id="Name" type="text" value="{{$parent->address}}" name="address" class="form-control">
                                             </div>
                                         </div>
-                                        <br>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">{{ trans('teachers.teacher_subject') }}
-                                                :</label>
-                                            <select class="custom-select" name="subjects[]" multiple>
-                                                @foreach ($teacher->subjects as $subject)
-                                                    <option value="{{$subject->id}}" selected>{{$subject->$name_attr}}</option>
-                                                @endforeach
-                                                @foreach ($subjects as $subject)
-                                                <option value="{{$subject->id}}">{{$subject->$name_attr}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
                                         <br><br>
                                         
                                         <div class="modal-footer">
@@ -169,7 +155,7 @@ empty
                             </div>
 
                             <!-- delete_modal_Grade -->
-                            <div class="modal fade" id="delete{{ $teacher->id }}" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="delete{{ $parent->id }}" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -183,7 +169,7 @@ empty
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="{{ route('teachers.destroy', $teacher->id) }}" method="post">
+                                            <form action="{{ route('parents.destroy', $parent->id) }}" method="post">
                                                 {{ method_field('Delete') }}
                                                 @csrf
                                                 {{ trans('classrooms.delete') }}
@@ -210,7 +196,7 @@ empty
                                 <div class="modal-header">
                                     <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                         id="exampleModalLabel">
-                                        {{ trans('teachers.add_teacher') }}
+                                        {{ trans('students.add_parent') }}
                                     </h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -219,20 +205,20 @@ empty
                                 <div class="modal-body">
                                     
                                     <!-- add_form -->
-                                    <form action="{{ route('teachers.store') }}" method="POST">
+                                    <form action="{{ route('parents.store') }}" method="POST">
                                         @csrf
                                         <div class="row">
                                             <div class="col">
                                                 <label for="name" class="mr-sm-2">{{
-                                                    trans('teachers.teacher_name') }}
+                                                    trans('students.parent_name_ar') }}
                                                     :</label>
-                                                <input id="Name" type="text" name="name_ar" class="form-control">
+                                                <input id="Name" type="text" name="name_ar" required class="form-control">
                                             </div>
                                             <div class="col">
                                                 <label for="name" class="mr-sm-2">{{
-                                                    trans('teachers.teacher_name_en') }}
+                                                    trans('students.parent_name_en') }}
                                                     :</label>
-                                                <input id="Name" type="text" name="name_en" class="form-control">
+                                                <input id="Name" type="text" name="name_en" required class="form-control">
                                             </div>
                                         </div>
                                         <br>
@@ -241,7 +227,7 @@ empty
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('teachers.email') }}
                                                     :</label>
-                                                <input id="Name" type="text" name="email" class="form-control">
+                                                <input id="Name" type="text" name="email" required class="form-control">
                                             </div>
                                         </div>
                                         <br>
@@ -250,27 +236,15 @@ empty
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('teachers.mobile') }}
                                                     :</label>
-                                                <input id="Name" type="text" name="phone" class="form-control">
+                                                <input id="Name" type="text" name="phone" required class="form-control">
                                             </div>
                                             <div class="col">
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('teachers.address') }}
                                                     :</label>
-                                                <input id="Name" type="text" name="address" class="form-control">
+                                                <input id="Name" type="text" name="address" required class="form-control">
                                             </div>
                                         </div>
-                                        <br>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">{{ trans('teachers.teacher_subject') }}
-                                                :</label>
-                                            <select class="custom-select" name="subjects[]" multiple>
-                                                <option value="" disabled selected>{{trans('subjects.subject_name')}}</option>
-                                                @foreach ($subjects as $subject)
-                                                <option value="{{$subject->id}}">{{$subject->$name_attr}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
                                         <br><br>
                                         
                                         <div class="modal-footer">
@@ -293,7 +267,3 @@ empty
                 @section('js')
 
                 @endsection
-
-
-
-
