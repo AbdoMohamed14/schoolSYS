@@ -75,7 +75,7 @@ empty
                                         data-target="#delete{{ $parent->id }}"
                                         title="{{ trans('students.delete') }}"><i class="fa fa-trash"></i></button>
 
-                                        <a type="button" href="{{route('teachers.show', $parent->id)}}" class="btn btn-warning btn-sm" title="{{ trans('students.show_students') }}"><i style="color: #ffffff" class="fa fa-eye"></i>
+                                        <a type="button" href="{{route('parents.show', $parent->id)}}" class="btn btn-warning btn-sm" title="{{ trans('students.show_students') }}"><i style="color: #ffffff" class="fa fa-eye"></i>
                                     
                                 </td>
 

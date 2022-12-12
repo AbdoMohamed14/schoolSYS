@@ -112,7 +112,7 @@
                               <hr>
                               <div class="row">
                                 <div class="col-sm-3">
-                                  <p class="mb-0">{{trans('students.blood_type')}}</p>
+                                  <p class="mb-0">{{trans('students.blood')}}</p>
                                 </div>
                                 <div class="col-sm-9">
                                   <p class="text-muted mb-0">{{$student->blood}}</p>
@@ -133,7 +133,7 @@
                                   <p class="mb-0">{{trans('students.parent')}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                  <p class="text-muted mb-0">{{$student->$parent_name_attr}}</p>
+                                  <p class="text-muted mb-0">{{$student->Myparent->$name_attr}}</p>
                                 </div>
                               </div>
                               <hr>
@@ -142,7 +142,7 @@
                                   <p class="mb-0">{{trans('students.Parent_phone')}}</p>
                                 </div>
                                 <div class="col-sm-9">
-                                  <p class="text-muted mb-0">{{$student->parent_phone}}</p>
+                                  <p class="text-muted mb-0">{{$student->Myparent->phone}}</p>
                                 </div>
                               </div>
 

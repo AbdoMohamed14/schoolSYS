@@ -226,13 +226,13 @@ empty
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('teachers.teacher_name') }}
                                                     :</label>
-                                                <input id="Name" type="text" name="name_ar" class="form-control">
+                                                <input id="Name" type="text" name="name_ar" required class="form-control">
                                             </div>
                                             <div class="col">
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('teachers.teacher_name_en') }}
                                                     :</label>
-                                                <input id="Name" type="text" name="name_en" class="form-control">
+                                                <input id="Name" type="text" name="name_en" required class="form-control">
                                             </div>
                                         </div>
                                         <br>
@@ -241,7 +241,7 @@ empty
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('teachers.email') }}
                                                     :</label>
-                                                <input id="Name" type="text" name="email" class="form-control">
+                                                <input id="Name" type="text" name="email" required class="form-control">
                                             </div>
                                         </div>
                                         <br>
@@ -250,20 +250,20 @@ empty
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('teachers.mobile') }}
                                                     :</label>
-                                                <input id="Name" type="text" name="phone" class="form-control">
+                                                <input id="Name" type="text" name="phone" required class="form-control">
                                             </div>
                                             <div class="col">
                                                 <label for="name" class="mr-sm-2">{{
                                                     trans('teachers.address') }}
                                                     :</label>
-                                                <input id="Name" type="text" name="address" class="form-control">
+                                                <input id="Name" type="text" name="address" required class="form-control">
                                             </div>
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1">{{ trans('teachers.teacher_subject') }}
                                                 :</label>
-                                            <select class="custom-select" name="subjects[]" multiple>
+                                            <select class="custom-select" name="subjects[]" required multiple>
                                                 <option value="" disabled selected>{{trans('subjects.subject_name')}}</option>
                                                 @foreach ($subjects as $subject)
                                                 <option value="{{$subject->id}}">{{$subject->$name_attr}}</option>

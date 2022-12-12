@@ -71,9 +71,9 @@ class MyparentController extends Controller
      * @param  \App\Models\Myparent  $myparent
      * @return \Illuminate\Http\Response
      */
-    public function show(Myparent $myparent)
+    public function show(Myparent $parent)
     {
-        //
+        return view('parents.profile', compact('parent'));
     }
 
     /**

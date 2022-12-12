@@ -139,7 +139,7 @@ empty
                                                     <select class="custom-select" name="teachers[]" multiple>
                                                         <option selected disabled>Open this select menu</option>
                                                         @foreach ($teachers as $teacher)
-                                                            <option value="{{$teacher->id}}">{{$teacher->name_ar}}->{{$teacher->subject->name_ar}}</option>
+                                                            <option value="{{$teacher->id}}">{{$teacher->$name_attr}}</option>
                                                         @endforeach
                                                       </select>
                                                 </div>
@@ -258,7 +258,7 @@ empty
                                                 <select class="custom-select" name="teachers[]" multiple>
                                                     <option selected disabled style="color: darkgoldenrod">you can select many teachers</option>
                                                     @foreach ($teachers as $teacher)
-                                                        <option value="{{$teacher->id}}">{{$teacher->$name_attr}}->{{$teacher->subject->$name_attr}}</option>
+                                                        <option value="{{$teacher->id}}">{{$teacher->$name_attr}}</option>
                                                     @endforeach
                                                   </select>
                                             </div>

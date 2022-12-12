@@ -14,7 +14,7 @@
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">
-            <h4 class="mb-0"> ncvlxcnvxcnvxcv</h4>
+            <h4 class="mb-0">{{trans('students.add_student')}}</h4>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
@@ -125,7 +125,7 @@
                         <div class="col">
                             <label for="name" class="mr-sm-2">{{trans('students.parent') }}
                                 :</label>
-                                <select class="js-example-basic-single form-control" name="parent">
+                                <select class="js-example-basic-single form-control" required name="parent">
                                     @foreach ($parents as $parent)
                                         <option value="{{$parent->id}}">{{$parent->$name_attr}}</option>
                                     @endforeach
