@@ -208,16 +208,6 @@ empty
                                             </div>
                                         </div>
                                         <br>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">{{ trans('stage_classes.stage') }}
-                                                :</label>
-                                            <select name="stage_class" required id="" class="form-control">
-                                                <option value="" disabled selected>{{trans('stage_classes.choose')}}</option>
-                                                @foreach ($stage_classes as $stage_class)
-                                                <option value="{{$stage_class->id}}">{{$stage_class->$name_attr}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
 
 
                                         <div class="row">

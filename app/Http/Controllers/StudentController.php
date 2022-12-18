@@ -56,9 +56,9 @@ class StudentController extends Controller
             if($request->image){
     
                 $newPhotoName = time() . '-' . $request->name_en . '.' . $request->image->extension();
-    
-                $request->image->move(public_path('student_images'), $newPhotoName);
-            }
+
+                Storage::putFileAs('public/student_imags', $request->image, $newPhotoName);
+                }
 
 
             Student::create([
@@ -132,10 +132,7 @@ class StudentController extends Controller
                 $newPhotoName = time() . '-' . $request->name_en . '.' . $request->image->extension();
 
                 Storage::putFileAs('public/student_imags', $request->image, $newPhotoName);
-
-    
             }
-
 
             $student->update([
                 'name_ar' => $request->name_ar,

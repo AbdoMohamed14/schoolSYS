@@ -42,10 +42,10 @@
                           <div class="card mb-4">
                             <div class="card-body text-center">
                               @if ($student->image)
-                              <img src="{{asset('students_images/'.$student->avatar)}}" alt="avatar"
+                              <img src="{{asset('storage/student_imags/'.$student->image)}}" alt="avatar"
                               class="rounded-circle img-fluid" style="width: 150px;">
                               @else
-                              <img src="{{asset('students_images/staticpro.jpg')}}" alt="avatar"
+                              <img src="{{asset('storage/student_imags/staticpro.jpg')}}" alt="avatar"
                               class="rounded-circle img-fluid" style="width: 150px;">
                               @endif                                  
                               <h5 class="my-3">{{$student->$name_attr}}</h5>
@@ -152,7 +152,7 @@
                             <div class="col-md-6">
                               <div class="card mb-4 mb-md-0">
                                 <div class="card-body">
-                                  <p class="mb-4"> {{trans('students.student_rate')}}
+                                  <p class="mb-4"> <b>{{trans('subjects.subjects')}}</b>
                                   </p>
                                   @foreach ($student->stageClass->subjects as $subject)
                                   <p class="mb-1" style="font-size: .77rem;">{{$subject->$name_attr}}</p>

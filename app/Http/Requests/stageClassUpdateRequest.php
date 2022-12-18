@@ -24,9 +24,10 @@ class stageClassUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_ar' => 'required|string',
-            'name_en' => 'required|string',
-            'stage'   => 'required|integer',
+            'name_ar'  => 'required|string',
+            'name_en'  => 'required|string',
+            'stage'    => 'required|integer',
+            'subjects' => 'required|array',
         ];
     }
 }

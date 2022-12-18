@@ -49,6 +49,7 @@ empty
                             <tr>
                                 <th>#</th>
                                 <th><b>{{trans('teachers.teacher_name')}}</b></th>
+                                <th><b>{{trans('subjects.subjects')}}</b></th>
                                 <th><b>{{trans('stages.actions')}}</b></th>
 
                             </tr>
@@ -67,6 +68,11 @@ empty
                                 @php $i++; @endphp
                                 <td><b>{{$i}}</b></td>
                                 <td><b>{{$teacher->$name_attr}}</b></td>
+                                <td>
+                                @foreach ($teacher->subjects as $subject)
+                                    <b>{{$subject->$name_attr}} -</b>
+                                @endforeach
+                            </td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                         data-target="#edit{{ $teacher->id }}"
@@ -292,6 +298,7 @@ empty
                 @endsection
                 @section('js')
 
+                
                 @endsection
 
 

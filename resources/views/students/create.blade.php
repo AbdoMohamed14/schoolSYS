@@ -126,6 +126,7 @@
                             <label for="name" class="mr-sm-2">{{trans('students.parent') }}
                                 :</label>
                                 <select class="js-example-basic-single form-control" required name="parent">
+                                    <option value="" disabled selected>choose parent</option>
                                     @foreach ($parents as $parent)
                                         <option value="{{$parent->id}}">{{$parent->$name_attr}}</option>
                                     @endforeach

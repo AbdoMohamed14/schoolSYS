@@ -40,9 +40,9 @@
                           <div class="card mb-4">
                             <div class="card-body text-center">
                               @if ($teacher->avatar)
-                                <img src="{{asset('teacher_avatars/'.$teacher->avatar)}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                                <img src="{{asset('storage/teacher_avatars/'.$teacher->avatar)}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                               @else
-                                <img src="{{asset('teacher_avatars/staticpro.jpg')}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                                <img src="{{asset('storage/staticpro.jpg')}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                               @endif
                               <h5 class="my-3">{{$teacher->$name_attr}}</h5>
                               <p class="text-muted mb-1">Full Stack Developer</p>
@@ -129,11 +129,11 @@
                             <div class="col-md-6">
                               <div class="card mb-4 mb-md-0">
                                 <div class="card-body">
-                                  <p class="mb-4"> الفصول
+                                  <p class="mb-4"> {{trans('subjects.subjects')}}
                                   </p>
-                                @foreach ($teacher->classrooms as $classroom)
+                                @foreach ($teacher->subjects as $subject)
                                     
-                                  <p class="mb-1" style="font-size: .77rem;">{{$classroom->name}}</p>
+                                  <p class="mb-1" style="font-size: .77rem;">{{$subject->$name_attr}}</p>
                                   <div class="progress rounded" style="height: 5px;">
                                     <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
                                       aria-valuemin="0" aria-valuemax="100"></div>

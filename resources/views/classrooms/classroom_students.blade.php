@@ -28,7 +28,7 @@
 <!-- breadcrumb -->
 @endsection
 @section('content')
-
+ 
 <!-- row -->
 <div class="row">
     <div class="col-md-12 mb-30">
@@ -44,7 +44,7 @@
                             <th>{{ trans('students.stage') }}</th>
                             <th>{{ trans('students.stage_class') }}</th>
                             <th>{{ trans('students.classroom') }}</th>
-                            <th>{{ trans('students.blood_type') }}</th>
+                            <th>{{ trans('students.blood') }}</th>
                             <th>{{ trans('students.religion') }}</th>
                             <th>{{ trans('students.actions') }}</th>
                         </tr>

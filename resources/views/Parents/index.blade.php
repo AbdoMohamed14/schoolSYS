@@ -98,7 +98,7 @@ empty
 
                                 <!-- edit_form -->
                              
-                                    <form action="{{ route('teachers.update', $parent->id) }}" method="POST">
+                                    <form action="{{ route('parents.update', $parent->id) }}" method="POST">
                                         @csrf
                                         @method('PATCH')
                                         <div class="row">

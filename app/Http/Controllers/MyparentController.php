@@ -94,9 +94,29 @@ class MyparentController extends Controller
      * @param  \App\Models\Myparent  $myparent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Myparent $myparent)
+    public function update(storeParentRequest $request, Myparent $parent)
     {
-        //
+
+        try{
+
+            $validated = $request->validated();
+
+            $parent->update([
+                'name_ar' => $request->name_ar,
+                'name_en' => $request->name_en,
+                'email'  => $request->email,
+                'phone' => $request->phone,
+                'address'=> $request->address,
+            ]);
+
+            flash()->addSuccess(trans('toaster.success'));
+
+            return redirect()->back();
+
+        }catch(\Exception $ex){
+            return redirect()->back()->withErrors(['errors'=>$ex->getMessage()]);
+        }
+
     }
 
     /**
@@ -105,8 +125,23 @@ class MyparentController extends Controller
      * @param  \App\Models\Myparent  $myparent
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Myparent $myparent)
+    public function destroy(Myparent $parent)
     {
-        //
+
+        try{
+
+            $parent->delete();
+
+            return redirect()->back();
+
+        }catch(\Exception $ex){
+
+            flash()->addError('Something went wrong please try again later');
+            return redirect()->back()->withErrors(['error'=>$ex->getMessage()]);
+        }
     }
+
+
+
+
 }

@@ -42,17 +42,17 @@ class StageClassController extends Controller
      */
     public function store(stageClassStoreRequest $request)
     {
+        
         try {
                 
             $validated = $request->validated();
 
-            $stage_class = new StageClass();
-            $stage_class->name_ar = $request->name_ar;
-            $stage_class->name_en = $request->name_en;
-            $stage_class->stage_id = $request->stage;
-            $stage_class->save();
+          $stageClass = StageClass::create([
+                'name_ar' => $request->name_ar,
+                'name_en' => $request->name_en,
+                'stag_id' => $request->stage
 
-            $stage_class->subjects()->attach($request->subjects);
+            ])->subjects()->attach($request->subjects);
 
             flash()->addSuccess('Stage Class created successfully');
 
@@ -96,21 +96,21 @@ class StageClassController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(stageClassUpdateRequest $request, StageClass $stage_class)
-    {
-
+    {    
         
         try {
-
-                
+        
             $validated = $request->validated();
 
-            $stage_class->name_ar = $request->name_ar;
-            $stage_class->name_en = $request->name_en;
-            $stage_class->stage_id = $request->stage;
-            $stage_class->save();
-
-            $stage_class->subjects()->sync($request->subjects);
-
+            $stageClass =  StageClass::where('id', $stage_class->id)->first();
+            
+            $stageClass->update([
+                    'name_ar' => $request->name_ar,
+                    'name_en' => $request->name_en,
+                    'stage_id' => $request->stage,
+                ]);
+            
+            $stageClass->subjects()->sync($request->subjects);
 
             flash()->addSuccess('Stage Class Updated successfully');
 

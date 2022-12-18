@@ -10,6 +10,7 @@ use App\Http\Controllers\StageController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
+use App\Models\Myparent;
 use Illuminate\Support\Facades\Route;
 
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -61,8 +62,15 @@ Route::group(
         Route::resource('sessionTables', SessionTableController::class);
 
         Route::get('profile', [ProfileController::class, 'index'])->name('myProfile');
+
     });
 
+    Route::get('test', function(){
+
+         $id = Myparent::inRandomOrder()->take(1)->pluck('id');
+
+         return $id;
+    });
 
 
 require __DIR__.'/auth.php';

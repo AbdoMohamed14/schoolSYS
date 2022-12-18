@@ -19,6 +19,10 @@ class DatabaseSeeder extends Seeder
             StageClassSeeder::class,
             UserSeeder::class,
             ClassroomSeeder::class,
+            ParentSeeder::class,
+            StudentSeeder::class,
+            SubjectSeeder::class,
+            TeacherSeeder::class,
         ]);
     }
 }

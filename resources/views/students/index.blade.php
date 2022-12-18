@@ -69,7 +69,7 @@ empty
                             <tr>
                                 @php $i++; @endphp
                                 <td><b>{{$i}}</b></td>
-                                <td><b>{{$student->$name_attr}}</b></td>
+                                <td><b>{{$student->$name_attr. ' ' .$student->myParent->$name_attr}}</b></td>
                                 <td><b>{{$student->classroom->name}}</b></td>
                                 <td><b>{{$student->stageClass->$name_attr}}</b></td>
                                 <td>

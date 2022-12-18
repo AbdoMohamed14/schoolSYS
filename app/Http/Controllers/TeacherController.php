@@ -96,7 +96,18 @@ class TeacherController extends Controller
 
             $validated = $request->validated();
 
-            Teacher::where('id', $teacher->id)->update($request->all())->subjects()->sync($request->subjects);
+            $updateTeacher = Teacher::where('id', $teacher->id)->first();
+            
+            $updateTeacher->update([
+                'name_ar' => $request->name_ar,
+                'name_en' => $request->name_en,
+                'email'   => $request->email,
+                'phone'   => $request->phone,
+                'address' => $request->address,
+
+            ]);
+            
+            $updateTeacher->subjects()->sync($request->subjects);
 
             flash()->addSuccess(trans('toaster.success'));
 
